@@ -52,7 +52,7 @@ class _healthInsuForm3State extends State<healthInsuForm3> {
 
   // Adding Student
   CollectionReference pids =
-      FirebaseFirestore.instance.collection('healthInsurance');
+      FirebaseFirestore.instance.collection('healthInsurance3');
 
   Future<void> addUser() async {
     // final imgurl = await uploadImage(_image!);

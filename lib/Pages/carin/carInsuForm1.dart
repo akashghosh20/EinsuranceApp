@@ -65,7 +65,7 @@ class _carInsuForm1State extends State<carInsuForm1> {
 
   // Adding Student
   CollectionReference pids =
-      FirebaseFirestore.instance.collection('carInsurance');
+      FirebaseFirestore.instance.collection('carInsurance1');
 
   Future<void> addUser() async {
     // final imgurl = await uploadImage(_image!);
