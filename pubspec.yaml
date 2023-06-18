@@ -41,6 +41,7 @@ flutter:
     - assets/
     - assets/images/insurancelogo.png
     - assets/images/avatar.jpg
+    - assets/images/
 
   # fonts:
   #   - family: Schyler

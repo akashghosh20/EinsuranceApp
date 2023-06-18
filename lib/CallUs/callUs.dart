@@ -3,6 +3,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
+import 'package:insuranceapp/chatbot/chatbotConstants.dart';
 
 class CallUs extends StatefulWidget {
   const CallUs({Key? key}) : super(key: key);
@@ -23,36 +24,39 @@ class _CallUsState extends State<CallUs> {
       appBar: AppBar(
         title: Text("Contact Us"),
         centerTitle: true,
-        backgroundColor: Colors.blue,
+        backgroundColor: kAppBarColor,
         elevation: 5,
       ),
-      body: Center(
-        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Image.asset("assets/images/insurancelogo.png"),
-          SizedBox(
-            height: 50,
-          ),
-          Container(
-            decoration: const BoxDecoration(
-              color: Colors.blue,
-              borderRadius: BorderRadius.all(Radius.circular(18)),
+      body: Container(
+        // color: kAppBarColor.withOpacity(.1),
+        child: Center(
+          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+            Image.asset("assets/images/insurancelogo.png"),
+            SizedBox(
+              height: 50,
             ),
-            child: TextButton(
-                style: TextButton.styleFrom(fixedSize: const Size(180, 50)),
-                onPressed: () {
-                  {
-                    callNumber();
-                  }
-                },
-                child: Text(
-                  "Call 999",
-                  style: const TextStyle(
-                    fontSize: 20,
-                    color: Colors.white,
-                  ),
-                )),
-          ),
-        ]),
+            Container(
+              decoration: const BoxDecoration(
+                color: Colors.lightBlue,
+                borderRadius: BorderRadius.all(Radius.circular(18)),
+              ),
+              child: TextButton(
+                  style: TextButton.styleFrom(fixedSize: const Size(180, 50)),
+                  onPressed: () {
+                    {
+                      callNumber();
+                    }
+                  },
+                  child: const Text(
+                    "Call 999",
+                    style: const TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                    ),
+                  )),
+            ),
+          ]),
+        ),
       ),
     );
   }

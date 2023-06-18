@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:insuranceapp/Pages/HomePage.dart';
+import 'package:insuranceapp/chatbot/chatbotConstants.dart';
 
 class CarInsurenceC extends StatefulWidget {
   const CarInsurenceC({super.key});
@@ -13,6 +14,8 @@ class _CarInsurenceCState extends State<CarInsurenceC> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        color: kAppBarColor.withOpacity(.3),
+        padding: EdgeInsets.all(10),
         alignment: Alignment.center,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -21,19 +24,16 @@ class _CarInsurenceCState extends State<CarInsurenceC> {
             const Text(
               "Congratulations",
               style: TextStyle(
-                fontSize: 50,
+                fontSize: 42,
               ),
             ),
             const SizedBox(
-              height: 5,
-            ),
-            const SizedBox(
-              height: 10,
+              height: 15,
             ),
             const Text(
               "Your Profile has been created",
               style: TextStyle(
-                fontSize: 35,
+                fontSize: 25,
               ),
             ),
             const SizedBox(

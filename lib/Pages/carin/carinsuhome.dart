@@ -3,6 +3,7 @@ import 'package:insuranceapp/Pages/carin/carpack1.dart';
 import 'package:insuranceapp/Pages/carin/carpack2.dart';
 import 'package:insuranceapp/Pages/carin/carpack3.dart';
 import 'package:insuranceapp/chatbot/chatbot.dart';
+import 'package:insuranceapp/chatbot/chatbotConstants.dart';
 
 class CarInsuHome extends StatefulWidget {
   const CarInsuHome({super.key});
@@ -24,106 +25,110 @@ class _CarInsuHomeState extends State<CarInsuHome> {
         centerTitle: true,
         elevation: 4,
       ),
-      body: Column(children: [
-        const SizedBox(
-          height: 25,
-        ),
-        Container(
-          child:
-              Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-            Container(
-              width: 150,
-              height: 250,
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => Cp1()));
-                },
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Flexible(
-                      child: Image.asset(
-                        "assets/images/insurancelogo.png",
+      body: Container(
+        color: kAppBarColor.withOpacity(.3),
+        child: Column(children: [
+          const SizedBox(
+            height: 25,
+          ),
+          Container(
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Container(
+                    width: 150,
+                    height: 250,
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Cp1()));
+                      },
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Flexible(
+                            child: Image.asset(
+                              "assets/images/insurancelogo.png",
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          Container(
+                              alignment: Alignment.center,
+                              color: Color.fromARGB(200, 200, 200, 1),
+                              height: 50,
+                              width: 250,
+                              child: Text("15  RMT"))
+                        ],
                       ),
                     ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    Container(
-                        alignment: Alignment.center,
-                        color: Color.fromARGB(200, 200, 200, 1),
-                        height: 50,
-                        width: 250,
-                        child: Text("15  RMT"))
-                  ],
-                ),
-              ),
-            ),
-            Container(
-              width: 150,
-              height: 250,
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => Cp2()));
-                },
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Flexible(
-                      child: Image.asset(
-                        "assets/images/insurancelogo.png",
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    Container(
-                        alignment: Alignment.center,
-                        color: Color.fromARGB(200, 200, 200, 1),
-                        height: 50,
-                        width: 250,
-                        child: Text("25  RMT"))
-                  ],
-                ),
-              ),
-            ),
-          ]),
-        ),
-        const SizedBox(
-          height: 25,
-        ),
-        Container(
-          width: 150,
-          height: 250,
-          child: GestureDetector(
-            onTap: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => Cp3()));
-            },
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Flexible(
-                  child: Image.asset(
-                    "assets/images/insurancelogo.png",
                   ),
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Container(
-                    alignment: Alignment.center,
-                    color: Color.fromARGB(200, 200, 200, 1),
-                    height: 50,
-                    width: 250,
-                    child: Text("50  RMT"))
-              ],
+                  Container(
+                    width: 150,
+                    height: 250,
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Cp2()));
+                      },
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Flexible(
+                            child: Image.asset(
+                              "assets/images/insurancelogo.png",
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          Container(
+                              alignment: Alignment.center,
+                              color: Color.fromARGB(200, 200, 200, 1),
+                              height: 50,
+                              width: 250,
+                              child: Text("25  RMT"))
+                        ],
+                      ),
+                    ),
+                  ),
+                ]),
+          ),
+          const SizedBox(
+            height: 25,
+          ),
+          Container(
+            width: 150,
+            height: 250,
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Cp3()));
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Flexible(
+                    child: Image.asset(
+                      "assets/images/insurancelogo.png",
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Container(
+                      alignment: Alignment.center,
+                      color: Color.fromARGB(200, 200, 200, 1),
+                      height: 50,
+                      width: 250,
+                      child: Text("50  RMT"))
+                ],
+              ),
             ),
           ),
-        ),
-      ]),
+        ]),
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(

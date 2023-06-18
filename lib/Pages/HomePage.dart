@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:insuranceapp/CallUs/callUs.dart';
 import 'package:insuranceapp/Map/maps.dart';
+import 'package:insuranceapp/Pages/carin/carinsuhome.dart';
 
 import 'package:insuranceapp/Pages/completeProfile.dart';
 import 'package:insuranceapp/Pages/constants.dart';
@@ -47,9 +48,22 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         InsuranceProgramGrid(
                           insuranceProgramTitle: 'Health Insurance',
+                          insuranceHomeRoute: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => HealthInsuHome()));
+                          },
                         ),
                         InsuranceProgramGrid(
-                            insuranceProgramTitle: 'Car Insurance'),
+                          insuranceProgramTitle: 'Car Insurance',
+                          insuranceHomeRoute: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => CarInsuHome()));
+                          },
+                        ),
                       ]),
                 ),
                 const SizedBox(
@@ -129,8 +143,10 @@ class _HomePageState extends State<HomePage> {
 
 class InsuranceProgramGrid extends StatelessWidget {
   final String insuranceProgramTitle;
+  final VoidCallback insuranceHomeRoute;
 
-  InsuranceProgramGrid({required this.insuranceProgramTitle});
+  InsuranceProgramGrid(
+      {required this.insuranceProgramTitle, required this.insuranceHomeRoute});
 
   @override
   Widget build(BuildContext context) {
@@ -138,10 +154,7 @@ class InsuranceProgramGrid extends StatelessWidget {
       width: 120,
       height: 120,
       child: GestureDetector(
-        onTap: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => HealthInsuHome()));
-        },
+        onTap: insuranceHomeRoute,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

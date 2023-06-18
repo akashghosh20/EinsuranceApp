@@ -5,6 +5,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:geocoder2/geocoder2.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:insuranceapp/chatbot/chatbotConstants.dart';
 
 class MapScreen extends StatefulWidget {
   const MapScreen({Key? key}) : super(key: key);
@@ -111,20 +112,24 @@ class _MapScreenState extends State<MapScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: kAppBarColor,
         title: Text("$dataAddress"),
         centerTitle: true,
       ),
-      body: GoogleMap(
-        markers: marker,
-        mapType: MapType.normal,
-        zoomControlsEnabled: true,
-        initialCameraPosition: _initialCameraPosition,
-        onMapCreated: (GoogleMapController controller) {
-          _controller.complete(controller);
-          setState(() {
-            getCurrentPosition();
-          });
-        },
+      body: Container(
+        color: kAppBarColor.withOpacity(.3),
+        child: GoogleMap(
+          markers: marker,
+          mapType: MapType.normal,
+          zoomControlsEnabled: true,
+          initialCameraPosition: _initialCameraPosition,
+          onMapCreated: (GoogleMapController controller) {
+            _controller.complete(controller);
+            setState(() {
+              getCurrentPosition();
+            });
+          },
+        ),
       ),
     );
   }
