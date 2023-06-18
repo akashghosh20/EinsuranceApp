@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:insuranceapp/Local%20Data/localdata.dart';
+import 'package:insuranceapp/Pages/healthin/healthCompleteScreen.dart';
 import 'package:insuranceapp/chatbot/chatbotConstants.dart';
 
 // import 'package:logsign/pages/CongratsStudent.dart';
@@ -409,6 +410,10 @@ class _healthInsuForm3State extends State<healthInsuForm3> {
                             backgroundColor:
                                 MaterialStateProperty.all(Colors.blue)),
                         onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => HealthInsurenceC()));
                           // Validate returns true if the form is valid, otherwise false.
                           if (_formKey.currentState!.validate()) {
                             setState(() async {

@@ -17,7 +17,7 @@ class _CarInsuHomeState extends State<CarInsuHome> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 183, 238, 255),
+        backgroundColor: const Color.fromARGB(255, 183, 238, 255),
         title: Text(
           "Choose One Package",
           style: TextStyle(color: Colors.black),

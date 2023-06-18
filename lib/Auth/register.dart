@@ -94,7 +94,7 @@ class _RegisterPageState extends State<RegisterPage> {
 // hello world
                 const SizedBox(height: 10),
                 Image.asset(
-                  "assets/inimages/logob.png",
+                  "assets/image/insurancelogo.png",
                   width: 400,
                   height: 200,
                 ),
