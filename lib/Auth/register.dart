@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:insuranceapp/Auth/login.dart';
+import 'package:insuranceapp/Pages/HomePage.dart';
 
 class RegisterPage extends StatefulWidget {
   // final VoidCallback showLoginPage;
@@ -40,8 +42,9 @@ class _RegisterPageState extends State<RegisterPage> {
           email: _emailController.text.trim(),
           password: _passwordController.text.trim(),
         );
-        // Navigator.push(
-        //     context, MaterialPageRoute(builder: (context) =>));
+
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => HomePage()));
       } else {
         showDialog(
             context: context,
@@ -62,15 +65,15 @@ class _RegisterPageState extends State<RegisterPage> {
     }
   }
 
-  Future adduserDetails(
-      String firstname, String lastname, String email, int age) async {
-    await FirebaseFirestore.instance.collection('users').add({
-      'first name': firstname,
-      'last name': lastname,
-      'age': age,
-      'email': email,
-    });
-  }
+  // Future adduserDetails(
+  //     String firstname, String lastname, String email, int age) async {
+  //   await FirebaseFirestore.instance.collection('users').add({
+  //     'first name': firstname,
+  //     'last name': lastname,
+  //     'age': age,
+  //     'email': email,
+  //   });
+  // }
 
   bool passwordConfirmed() {
     if (_passwordController.text.trim() ==
@@ -84,7 +87,7 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
@@ -94,7 +97,7 @@ class _RegisterPageState extends State<RegisterPage> {
 // hello world
                 const SizedBox(height: 10),
                 Image.asset(
-                  "assets/image/insurancelogo.png",
+                  "assets/images/insurancelogo.png",
                   width: 400,
                   height: 200,
                 ),
@@ -148,30 +151,33 @@ class _RegisterPageState extends State<RegisterPage> {
                       border: Border.all(color: Colors.white),
                       borderRadius: BorderRadius.circular(12),
                     ),
-                    child: TextFormField(
-                      // keyboardType: TextInputType.text,
-                      controller: _passwordController,
-                      obscureText:
-                          !_passwordVisible, //This will obscure text dynamically
-                      decoration: InputDecoration(
-                        hintText: 'Give your appropriate password',
-                        border: InputBorder.none,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: TextFormField(
+                        // keyboardType: TextInputType.text,
+                        controller: _passwordController,
+                        obscureText:
+                            !_passwordVisible, //This will obscure text dynamically
+                        decoration: InputDecoration(
+                          hintText: 'Give your appropriate password',
+                          border: InputBorder.none,
 
-                        // Here is key idea
-                        suffixIcon: IconButton(
-                          icon: Icon(
-                            // Based on passwordVisible state choose the icon
-                            _passwordVisible
-                                ? Icons.visibility
-                                : Icons.visibility_off,
-                            color: Theme.of(context).primaryColorDark,
+                          // Here is key idea
+                          suffixIcon: IconButton(
+                            icon: Icon(
+                              // Based on passwordVisible state choose the icon
+                              _passwordVisible
+                                  ? Icons.visibility
+                                  : Icons.visibility_off,
+                              color: Theme.of(context).primaryColorDark,
+                            ),
+                            onPressed: () {
+                              // Update the state i.e. toogle the state of passwordVisible variable
+                              setState(() {
+                                _passwordVisible = !_passwordVisible;
+                              });
+                            },
                           ),
-                          onPressed: () {
-                            // Update the state i.e. toogle the state of passwordVisible variable
-                            setState(() {
-                              _passwordVisible = !_passwordVisible;
-                            });
-                          },
                         ),
                       ),
                     ),
@@ -186,30 +192,33 @@ class _RegisterPageState extends State<RegisterPage> {
                       border: Border.all(color: Colors.white),
                       borderRadius: BorderRadius.circular(12),
                     ),
-                    child: TextFormField(
-                      keyboardType: TextInputType.text,
-                      controller: _confirmpasswordcontroller,
-                      obscureText:
-                          !_passwordVisible, //This will obscure text dynamically
-                      decoration: InputDecoration(
-                        hintText: 'Confirm password',
-                        border: InputBorder.none,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: TextFormField(
+                        keyboardType: TextInputType.text,
+                        controller: _confirmpasswordcontroller,
+                        obscureText:
+                            !_passwordVisible, //This will obscure text dynamically
+                        decoration: InputDecoration(
+                          hintText: 'Confirm password',
+                          border: InputBorder.none,
 
-                        // Here is key idea
-                        suffixIcon: IconButton(
-                          icon: Icon(
-                            // Based on passwordVisible state choose the icon
-                            _passwordVisible
-                                ? Icons.visibility
-                                : Icons.visibility_off,
-                            color: Theme.of(context).primaryColorDark,
+                          // Here is key idea
+                          suffixIcon: IconButton(
+                            icon: Icon(
+                              // Based on passwordVisible state choose the icon
+                              _passwordVisible
+                                  ? Icons.visibility
+                                  : Icons.visibility_off,
+                              color: Theme.of(context).primaryColorDark,
+                            ),
+                            onPressed: () {
+                              // Update the state i.e. toogle the state of passwordVisible variable
+                              setState(() {
+                                _passwordVisible = !_passwordVisible;
+                              });
+                            },
                           ),
-                          onPressed: () {
-                            // Update the state i.e. toogle the state of passwordVisible variable
-                            setState(() {
-                              _passwordVisible = !_passwordVisible;
-                            });
-                          },
                         ),
                       ),
                     ),
@@ -224,12 +233,12 @@ class _RegisterPageState extends State<RegisterPage> {
                     child: Container(
                       padding: const EdgeInsets.all(20),
                       decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 255, 0, 0),
+                        color: Colors.blue,
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: const Center(
                         child: Text(
-                          'রেজিস্টার',
+                          'Register',
                           style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
@@ -246,18 +255,23 @@ class _RegisterPageState extends State<RegisterPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text(
-                      'কিন্তু আমি রেজিস্টার্ড ?',
+                      'Already have an account ?',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     GestureDetector(
-                      // onTap: widget.showLoginPage,
-                      child: const Text(
-                        ' লগ ইন করুন',
-                        style: TextStyle(
-                          color: Color.fromARGB(255, 255, 0, 0),
-                          fontWeight: FontWeight.bold,
+                      child: TextButton(
+                        onPressed: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (_) => LoginPage()));
+                        },
+                        child: const Text(
+                          ' Log In',
+                          style: TextStyle(
+                            color: Colors.blue,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
